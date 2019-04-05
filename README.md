@@ -146,7 +146,18 @@ def get_rosdistro_index_original_branch():
   return _rosdistro_index_original_branch
 ```
 
-```sh
+```go
+blacklist := bloom.New(10000, 200)
+
+url := "https://rascal.com"
+blacklist.Add(url)
+
+if blacklist.Test(url) {
+  fmt.Println(url, "may be blacklisted.")
+} else {
+  fmt.Println(url, "has not been added to our blacklist.")
+}
+
 ```
 
 ```go
